@@ -54,3 +54,12 @@ export async function getServerSideProps(context) {
 export default HomePage;
 
 ```
+
+추가적으로 getStaticPaths를 통해 동적 경로에 대한 pre-generate를 지정하고 fallback을 설정할 수 있다.
+
+
+## api route
+pages > api 폴더 안에 javascript 파일은 api route 이다. 서버 사이드에서 동작하며 해당 파일 경로(url)에 접근하면 함수가 실행된다. 이를 활용하여 serverless 웹을 구현할 수 있다.
+api 내부 파일 이름이 api url이 되며 클라이언트에서 절대 접근할 수 없는 코드이다.
+또한, getStaticprops() 내부에서 활용하기 위해 mongodb와 같은 패키지를 Import 할 때, getStaticProps()는 서버에서만 실행되기 때문에 자동으로 클라이언트 번들에 해당 패키지를 제외한다. (성능, 보안 향상) 
+주의할 점은 **getStaticProps이나 getStaticPaths처럼 서버 사이드에서 작동하는 함수 내부에서는 api route를 fetch 하기보단 db에 직접 요청을 하는 방식이 좋다.**
