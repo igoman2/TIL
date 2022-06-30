@@ -56,7 +56,8 @@ export default HomePage;
 ```
 
 추가적으로 getStaticPaths를 통해 동적 경로에 대한 pre-generate를 지정하고 fallback을 설정할 수 있다.
-
+fallback을 false로 하면 사전에 빌드한 페이지에 해당하는 않는 경로에 404를 띄워주지만 true나 'blocking'으로 하면 요청이 올 때 새로 페이지를 만들어낸다.
+true는 바로 화면으로 전환하고 데이터가 그려질때 까지 interaction을 개발자가 구현해야 하고, 'blocking'은 페이지가 다 그려지면 화면을 전환한다.
 
 ## api route
 pages > api 폴더 안에 javascript 파일은 api route 이다. 서버 사이드에서 동작하며 해당 파일 경로(url)에 접근하면 함수가 실행된다. 이를 활용하여 serverless 웹을 구현할 수 있다.
